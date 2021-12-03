@@ -14,5 +14,5 @@ https://trello.com/b/04dS9nlf/capstone
 
 Netlify
 
-trip-app-project.netlify.app
+https://trip-app-project.netlify.app/
 
