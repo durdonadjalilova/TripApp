@@ -32,19 +32,19 @@ export default function Home() {
               <MDBNavbarItem>
                 <MDBNavbarLink href="#">
                   <img
-                    class="navbar-brand"
+                    className="navbar-brand"
                     className="logo"
                     src="https://www.pngall.com/wp-content/uploads/5/Car-Steering-Wheel-PNG-Images.png"
                   />
                 </MDBNavbarLink>
               </MDBNavbarItem>
             </MDBNavbarNav>
-            <button type="button" class="btn btn-primary">
+            <button type="button" className="btn btn-primary">
               Sign Up Free
             </button>
             <button
               type="button"
-              class="btn btn-success"
+              className="btn btn-success"
               onClick={signInWithGoogle}
             >
               Login
@@ -67,7 +67,7 @@ export default function Home() {
           </div>
           <button
             type="button"
-            class="btn btn-success"
+            className="btn btn-success"
             onClick={signInWithGoogle}
             color="dark-green"
           >

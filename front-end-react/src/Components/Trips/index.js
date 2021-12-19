@@ -1,4 +1,4 @@
-import { useEffect, useContext } from "react";
+import { useEffect, useContext, useState } from "react";
 import TripsListItem from "./TripsListItem";
 import { Link, useParams } from "react-router-dom";
 import { UserContext } from "../../Providers/UserProvider";
@@ -15,7 +15,10 @@ const Trips = () => {
   const dispatch = useDispatch();
   const { cars, trips } = entireState;
   const { id } = useParams();
-  const tripsArr = Object.values(trips);
+  let tripsArr = Object.values(trips);
+  const [data, setData] = useState(tripsArr);
+  const [order, setOrder] = useState("ASC");
+  let [isActive, setActive] = useState("false");
 
   useEffect(() => {
     const fetchAllTrips = async () => {
@@ -37,7 +40,66 @@ const Trips = () => {
     }
   }, [user, history]);
 
+  const sorting = (col) => {
+    // setIsActive("true");
+    if (order === "ASC") {
+      const sorted = [...data].sort((a, b) => (a[col] > b[col] ? 1 : -1));
+      console.log(sorted);
+      setData(sorted);
+      setOrder("DSC");
+      setActive(!isActive);
+    }
+    if (order === "DSC") {
+      const sorted = [...data].sort((a, b) => (a[col] < b[col] ? 1 : -1));
+      setData(sorted);
+      setOrder("ASC");
+      setActive(!isActive);
+    }
+  };
+
+  // const handleChange = (type) => {
+  //   const sortTypes = {
+  //     // date: "date",
+  //     miles: "miles",
+  //     reason: "reason",
+  //     business_use: "business_use",
+  //   };
+  //   let sortProperty = sortTypes[type];
+  //   const sorted = [...tripsArr].sort((a, b) => {
+  //     if (sortProperty === "reason" || sortProperty === "busines_use") {
+  //       return a[sortProperty].localeCompare(b[sortProperty]);
+  //     } else if (sortProperty === "miles") {
+  //       return a[sortProperty] - b[sortProperty];
+  //     } else {
+  //       return null;
+  //     }
+  //   });
+  //   setSorting(sorted);
+  // };
+
   return (
+    // <div>
+    //   <div id="sortBy">
+    //     Sort by{" "}
+    //     <select onChange={(e) => handleChange(e.target.value)}>
+    //       <option value="" defaultValue></option>
+    //       {/* <option name="date" value="date">
+    //         date
+    //       </option> */}
+    //       <option name="miles" value="miles">
+    //         miles
+    //       </option>
+    //       <option name="reason" value="reason">
+    //         reason
+    //       </option>
+    //       <option name="business_use" value="business_use">
+    //         business-use
+    //       </option>
+    //       {/* <option name="favorite" value="favorite">
+    //         favorite
+    //       </option> */}
+    //     </select>
+    //   </div>
     <div className="trips-table-parent">
       <h2>
         {cars[id]?.make} {cars[id]?.model} Mileage
@@ -48,21 +110,80 @@ const Trips = () => {
       <table className="trips-main-table">
         <thead>
           <tr className="head-row">
-            <th className="head-date">Date</th>
-            <th className="head-miles">Miles</th>
-            <th className="head-reason">Reason</th>
-            <th className="head-biz-use">Business Use</th>
+            <th
+              onClick={() => sorting("date")}
+              className={
+                order === "ASC"
+                  ? "head-date headerSortDown"
+                  : "head-date  headerSortUp"
+              }
+            >
+              Date
+            </th>
+            <th
+              onClick={() => sorting("miles")}
+              className={
+                order === "ASC"
+                  ? "head-miles headerSortDown"
+                  : "head-miles  headerSortUp"
+              }
+            >
+              Miles
+            </th>
+            <th
+              onClick={() => sorting("reason")}
+              className={
+                order === "ASC"
+                  ? "head-reason headerSortDown"
+                  : "head-reason  headerSortUp"
+              }
+            >
+              Reason
+            </th>
+            <th
+              onClick={() => sorting("business_use")}
+              className={
+                order === "ASC"
+                  ? "head-biz-use headerSortDown"
+                  : "head-biz-use  headerSortUp"
+              }
+            >
+              Business Use
+            </th>
             <th className="head-edit">Show</th>
           </tr>
         </thead>
         <tbody>
-          {tripsArr.map((trip, i) => {
+          {data.map((trip, i) => {
             return <TripsListItem key={i} trip={trip} />;
           })}
         </tbody>
       </table>
     </div>
+    //{" "}
+    // </div>
   );
 };
 
 export default Trips;
+
+// let sorted = Object.values(cars);
+// const [sorting, setSorting] = useState(sorted);
+// const handleChange = (type) => {
+//   const sortTypes = {
+//     id: "id",
+//     make: "make",
+//     model: "model",
+//   };
+//   const sortProperty = sortTypes[type];
+//   sorted = Object.values(cars).sort((a, b) => {
+//     if (sortProperty === "make" || sortProperty === "model") {
+//       return a[sortProperty].localeCompare(b[sortProperty]);
+//     } else if (sortProperty === "id") {
+//       return a[sortProperty] - b[sortProperty];
+//     } else {
+//       return null;
+//     }
+//   });
+//   setSorting(sorted);
+// };
