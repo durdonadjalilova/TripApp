@@ -57,49 +57,7 @@ const Trips = () => {
     }
   };
 
-  // const handleChange = (type) => {
-  //   const sortTypes = {
-  //     // date: "date",
-  //     miles: "miles",
-  //     reason: "reason",
-  //     business_use: "business_use",
-  //   };
-  //   let sortProperty = sortTypes[type];
-  //   const sorted = [...tripsArr].sort((a, b) => {
-  //     if (sortProperty === "reason" || sortProperty === "busines_use") {
-  //       return a[sortProperty].localeCompare(b[sortProperty]);
-  //     } else if (sortProperty === "miles") {
-  //       return a[sortProperty] - b[sortProperty];
-  //     } else {
-  //       return null;
-  //     }
-  //   });
-  //   setSorting(sorted);
-  // };
-
   return (
-    // <div>
-    //   <div id="sortBy">
-    //     Sort by{" "}
-    //     <select onChange={(e) => handleChange(e.target.value)}>
-    //       <option value="" defaultValue></option>
-    //       {/* <option name="date" value="date">
-    //         date
-    //       </option> */}
-    //       <option name="miles" value="miles">
-    //         miles
-    //       </option>
-    //       <option name="reason" value="reason">
-    //         reason
-    //       </option>
-    //       <option name="business_use" value="business_use">
-    //         business-use
-    //       </option>
-    //       {/* <option name="favorite" value="favorite">
-    //         favorite
-    //       </option> */}
-    //     </select>
-    //   </div>
     <div className="trips-table-parent">
       <h2>
         {cars[id]?.make} {cars[id]?.model} Mileage
@@ -160,30 +118,7 @@ const Trips = () => {
         </tbody>
       </table>
     </div>
-    //{" "}
-    // </div>
   );
 };
 
 export default Trips;
-
-// let sorted = Object.values(cars);
-// const [sorting, setSorting] = useState(sorted);
-// const handleChange = (type) => {
-//   const sortTypes = {
-//     id: "id",
-//     make: "make",
-//     model: "model",
-//   };
-//   const sortProperty = sortTypes[type];
-//   sorted = Object.values(cars).sort((a, b) => {
-//     if (sortProperty === "make" || sortProperty === "model") {
-//       return a[sortProperty].localeCompare(b[sortProperty]);
-//     } else if (sortProperty === "id") {
-//       return a[sortProperty] - b[sortProperty];
-//     } else {
-//       return null;
-//     }
-//   });
-//   setSorting(sorted);
-// };
