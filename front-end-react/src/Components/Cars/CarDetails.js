@@ -98,7 +98,7 @@ function CarDetails() {
       let newDate = new Date(trip.date);
       let year = newDate.getFullYear();
       if (trip.business_use) {
-        if (year === 2021) {
+        if (year === 2022) {
           trips.push([
             `${newDate.toLocaleDateString()}`,
             `${trip.miles}`,
