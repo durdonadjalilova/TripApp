@@ -80,7 +80,7 @@ function CarDetails() {
       let newDate = new Date(expense.date);
       let year = newDate.getFullYear();
       if (expense.business_use) {
-        if (year === 2021) {
+        if (year === 2022) {
           expenses.push([
             `${expense.expense_type}`,
             `${newDate.toLocaleDateString()}`,
@@ -207,7 +207,7 @@ function CarDetails() {
 
     return (
       <section className="car-section">
-        <LeftNav id={id} handleReport={handleReport}/>
+        <LeftNav id={id} handleReport={handleReport} />
 
         <CenterPanel car={car} id={id} handleDelete={handleDelete} />
 
