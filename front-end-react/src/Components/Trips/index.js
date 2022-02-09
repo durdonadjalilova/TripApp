@@ -1,4 +1,4 @@
-import { useEffect, useContext, useState } from "react";
+import { useEffect, useContext } from "react";
 import TripsListItem from "./TripsListItem";
 import { Link, useParams } from "react-router-dom";
 import { UserContext } from "../../Providers/UserProvider";
@@ -16,9 +16,6 @@ const Trips = () => {
   const { cars, trips } = entireState;
   const { id } = useParams();
   let tripsArr = Object.values(trips);
-  const [data, setData] = useState(tripsArr);
-  const [order, setOrder] = useState("ASC");
-  let [isActive, setActive] = useState("false");
 
   useEffect(() => {
     const fetchAllTrips = async () => {
@@ -40,23 +37,6 @@ const Trips = () => {
     }
   }, [user, history]);
 
-  const sorting = (col) => {
-    // setIsActive("true");
-    if (order === "ASC") {
-      const sorted = [...data].sort((a, b) => (a[col] > b[col] ? 1 : -1));
-      console.log(sorted);
-      setData(sorted);
-      setOrder("DSC");
-      setActive(!isActive);
-    }
-    if (order === "DSC") {
-      const sorted = [...data].sort((a, b) => (a[col] < b[col] ? 1 : -1));
-      setData(sorted);
-      setOrder("ASC");
-      setActive(!isActive);
-    }
-  };
-
   return (
     <div className="trips-table-parent">
       <h2>
@@ -68,51 +48,15 @@ const Trips = () => {
       <table className="trips-main-table">
         <thead>
           <tr className="head-row">
-            <th
-              onClick={() => sorting("date")}
-              className={
-                order === "ASC"
-                  ? "head-date headerSortDown"
-                  : "head-date  headerSortUp"
-              }
-            >
-              Date
-            </th>
-            <th
-              onClick={() => sorting("miles")}
-              className={
-                order === "ASC"
-                  ? "head-miles headerSortDown"
-                  : "head-miles  headerSortUp"
-              }
-            >
-              Miles
-            </th>
-            <th
-              onClick={() => sorting("reason")}
-              className={
-                order === "ASC"
-                  ? "head-reason headerSortDown"
-                  : "head-reason  headerSortUp"
-              }
-            >
-              Reason
-            </th>
-            <th
-              onClick={() => sorting("business_use")}
-              className={
-                order === "ASC"
-                  ? "head-biz-use headerSortDown"
-                  : "head-biz-use  headerSortUp"
-              }
-            >
-              Business Use
-            </th>
+            <th className="head-date">Date</th>
+            <th className="head-miles">Miles</th>
+            <th className="head-reason">Reason</th>
+            <th className="head-biz-use">Business Use</th>
             <th className="head-edit">Show</th>
           </tr>
         </thead>
         <tbody>
-          {data.map((trip, i) => {
+          {tripsArr.map((trip, i) => {
             return <TripsListItem key={i} trip={trip} />;
           })}
         </tbody>
