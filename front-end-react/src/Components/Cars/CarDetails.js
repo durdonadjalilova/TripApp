@@ -80,7 +80,7 @@ function CarDetails() {
       let newDate = new Date(expense.date);
       let year = newDate.getFullYear();
       if (expense.business_use) {
-        if (year === 2022) {
+        if (year) {
           expenses.push([
             `${expense.expense_type}`,
             `${newDate.toLocaleDateString()}`,
@@ -98,7 +98,7 @@ function CarDetails() {
       let newDate = new Date(trip.date);
       let year = newDate.getFullYear();
       if (trip.business_use) {
-        if (year === 2022) {
+        if (year) {
           trips.push([
             `${newDate.toLocaleDateString()}`,
             `${trip.miles}`,
@@ -149,7 +149,9 @@ function CarDetails() {
 
           {
             pageBreak: "before",
-            text: `${car?.make} ${car?.model} expenses for business-use\n for the year 2021 `,
+            text: `${car?.make} ${
+              car?.model
+            } expenses for business-use\n for the year ${new Date().getFullYear()}`,
             bold: true,
             fontSize: 20,
             alignment: "center",
@@ -174,7 +176,9 @@ function CarDetails() {
           },
           {
             pageBreak: "before",
-            text: `${car?.make} ${car?.model} miles for business-use\n for the year 2021 `,
+            text: `${car?.make} ${
+              car?.model
+            } miles for business-use\n for the year ${new Date().getFullYear()} `,
             bold: true,
             fontSize: 20,
             alignment: "center",
