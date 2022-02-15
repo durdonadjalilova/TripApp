@@ -23,7 +23,7 @@
 div.all-bs {
   display: flex;
   justify-content: space-between;
-  z-index:1;
+  z-index: 1;
 }
 
 /* Delete & Edit Common */
@@ -85,23 +85,18 @@ button.button-edit:hover {
   border: transparent;
 }
 
-
-
-
-
 @media only screen and (max-width: 600px) {
- 
-  .concar-div{
+  .concar-div {
     height: 60%;
     width: 60%;
-    margin-top:10%;
+    margin-top: 10%;
   }
-  div.all-bs {
+  .all-bs {
     display: flex;
     justify-content: space-around;
     /* z-index: 1; */
-    padding-left:10px;
-    padding-right:10px;
+    padding: 5%;
+    align-items: center;
   }
 
   button.button-delete {
@@ -125,7 +120,7 @@ button.button-edit:hover {
     outline: transparent;
     border: transparent;
   }
-  
+
   /* Edit Buttons */
   button.button-edit {
     background-image: url("../../Images/Edit.png");
@@ -148,16 +143,7 @@ button.button-edit:hover {
     outline: transparent;
     border: transparent;
   }
-  
-
-
-
-
-
-
-
 }
-
 
 /* .modal-a{
   border: red 2px solid;

@@ -14,14 +14,17 @@ const RightPanel = ({ car, id, tripsArr, expensesArr }) => {
       </div>
 
       <div className="all-expenses">
-        <p className="total-expenses">Total Expenses</p>$
-        {expensesArr
-          .reduce((total, expense) => {
-            total += expense.amount_spent;
-            return total;
-          }, 0)
-          .toLocaleString()}
-        .00
+        <p className="expense-title">Expenses</p>
+        <p className="total-expenses">
+          $
+          {expensesArr
+            .reduce((total, expense) => {
+              total += expense.amount_spent;
+              return total;
+            }, 0)
+            .toLocaleString()}
+          .00
+        </p>
       </div>
 
       <div className="deets">

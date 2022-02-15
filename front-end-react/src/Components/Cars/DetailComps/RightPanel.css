@@ -37,18 +37,48 @@
 .deets {
   font-size: 24px;
   margin-top: 11px;
+  text-align: left;
 }
 
 .all-expenses {
-  background-color: rgb(159, 156, 156);
-  color: black;
-  width: 200px;
-  display: flex;
-  justify-content: space-between;
-  font-size: 14px;
-  height: 28px;
-  padding-left: 10px;
-  padding-right: 10px;
-  border-radius: 50px;
-  border: black solid 3px;
+  text-align: center;
+  width: 80%;
+  margin-left: 2%;
+}
+.expense-title {
+  text-align: left;
+  margin-left: 25%;
+  margin-bottom: 0;
+}
+.total-expenses {
+  font-family: "Orbitron", sans-serif;
+  color: lime;
+  background-color: rgb(52, 50, 50);
+  font-size: 15px;
+  width: 80%;
+  border-radius: 12px;
+  padding-bottom: 25px;
+  height: 19px;
+  border: lime solid 0.5px;
+}
+
+@media only screen and (max-width: 600px) {
+  .odo-deets {
+    align-items: center;
+    width: 90vw;
+  }
+
+  .total-expenses {
+    margin: auto;
+  }
+
+  .expense-title {
+    text-align: center;
+    margin: auto;
+  }
+
+  .deets {
+    margin-left: 10%;
+    font-size: 130%;
+  }
 }
