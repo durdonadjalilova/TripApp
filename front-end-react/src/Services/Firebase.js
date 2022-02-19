@@ -16,21 +16,21 @@ const firebaseConfig = {
 const app = firebase.initializeApp(firebaseConfig);
 export const auth = app.auth();
 
-const googleProvider = new firebase.auth.GoogleAuthProvider();
+// const googleProvider = new firebase.auth.GoogleAuthProvider();
 
-export const signInWithGoogle = async () => {
-  try {
-    await auth.signInWithPopup(googleProvider);
-  } catch (err) {
-    console.log(err.message);
-    return err;
-  }
-};
+// export const signInWithGoogle = async () => {
+//   try {
+//     await auth.signInWithPopup(googleProvider);
+//   } catch (err) {
+//     console.log(err.message);
+//     return err;
+//   }
+// };
 export const signup = async (email, password) => {
-    await auth.createUserWithEmailAndPassword(email, password);
+  await auth.createUserWithEmailAndPassword(email, password);
 };
 export const login = async (email, password) => {
-    await auth.signInWithEmailAndPassword(email, password);
+  await auth.signInWithEmailAndPassword(email, password);
 };
 export const signOut = async () => {
   try {

@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 import { getAllCarsFN } from "../util/networkRequest";
 import { UserContext } from "../Providers/UserProvider";
 import { useHistory } from "react-router-dom";
-import { signInWithGoogle, signup, login } from "../Services/Firebase";
+import { signup, login } from "../Services/Firebase";
 import "../Components/Style/Login.css";
 import { AiFillLock } from "react-icons/ai";
 import TripLogo from "./Images/giflogo.GIF";
@@ -25,14 +25,14 @@ const Login = () => {
     newPassword: "",
     passwordCheck: "",
   });
-  const handleGoogle = () => {
-    try {
-      handleX();
-      signInWithGoogle();
-    } catch (error) {
-      console.log(error);
-    }
-  };
+  // const handleGoogle = () => {
+  //   try {
+  //     handleX();
+  //     // signInWithGoogle();
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // };
   const handleX = () => {
     setDisplaySignUp(false);
     setDisplayLogin(false);
@@ -196,13 +196,13 @@ const Login = () => {
             >
               New User
             </button>
-            <button
+            {/* <button
               type="button"
               className="btn btn-outline-secondary"
               onClick={handleGoogle}
             >
               Google Sign in
-            </button>
+            </button> */}
           </div>
           <legend>Log In</legend>
           <div className="mb-3">
@@ -253,7 +253,7 @@ const Login = () => {
             onClick={handleX}
             aria-label="Close"
           ></button>
-          <div>
+          {/* <div>
             <button
               type="button"
               className="btn btn-outline-secondary"
@@ -261,7 +261,7 @@ const Login = () => {
             >
               Google Sign in
             </button>
-          </div>
+          </div> */}
           <legend>Sign Up</legend>
           <div className="mb-3">
             <label htmlFor="newEmail" className="form-label">
