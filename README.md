@@ -2,17 +2,20 @@
 
 ## Important Links
 
-Heroku
+Netlify
+
 ```
-https://trip-app-pursuit.herokuapp.com/
+https://trip-app-project.netlify.app/
+```
+
+Fly
+
+```
+https://trip-app.fly.dev
 ```
 
 Trello
+
 ```
 https://trello.com/b/04dS9nlf/capstone
 ```
-
-Netlify
-
-https://trip-app-project.netlify.app/
-
