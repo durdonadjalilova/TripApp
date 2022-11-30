@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import ModalNewExpenseForm from "../Modals/ModalNewExpenseForm";
 import ModalNewTripForm from "../Modals/ModalNewTripForm";
+import hamburgerMenu from "./../../Images/hamburger menu.png";
 import "./LeftNav.css";
 
 const LeftNav = ({ id, handleReport }) => {
@@ -11,7 +12,7 @@ const LeftNav = ({ id, handleReport }) => {
   return (
     <>
       <img
-        src="https://uxwing.com/wp-content/themes/uxwing/download/07-web-app-development/hamburger-menu.png"
+        src={hamburgerMenu}
         style={{ height: "40px", width: "40px" }}
         className="hamb"
         onClick={() => setShowComp(!showComp)}

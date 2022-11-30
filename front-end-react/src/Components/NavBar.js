@@ -30,7 +30,6 @@ export default function NavBar() {
             <a href="https://www.lyft.com/driver/taxes" target="blank">
               Lyft
             </a>
-            {/* This link will change */}
             <a
               href="https://www.irs.gov/newsroom/heres-the-411-on-who-can-deduct-car-expenses-on-their-tax-returns"
               target="blank"

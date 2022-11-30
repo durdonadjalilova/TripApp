@@ -72,7 +72,6 @@ const ExpenseNewForm = () => {
               <td className="data-td">
                 <input
                   value={date}
-                  // value="1111-11-11"
                   type="date"
                   onChange={handleChange}
                   id="date"
